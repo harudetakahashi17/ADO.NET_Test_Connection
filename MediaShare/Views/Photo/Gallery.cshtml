@@ -1,0 +1,29 @@
+﻿@model MediaShare.ViewModels.PhotoLIst
+@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int len = Model.photoList.Count();
+}
+
+<center><h1>Photos</h1></center>
+<table class="photo" border="1" width="75%">
+    @for(int i = 0; i < len; i++)
+    {
+        if(i % 3 == 0)
+        {
+            <tr></tr>
+        }
+        <td>
+            <div class="containerimg">
+                <img src="~/Content/ww.JPG" width="300px" height="300px" />
+                <div class="overlayimg">
+                    <img src="~/Content/love.PNG" width="40px" height="40px" />
+                    <div class="overlay">
+                        @Model.photoList[i].Likes
+                    </div>
+                </div>
+            </div>
+        </td>
+    }
+
+    </table>
